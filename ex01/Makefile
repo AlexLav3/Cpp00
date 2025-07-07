@@ -2,7 +2,7 @@ NAME = LonerPhoneB
 CC = c++
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCES = main.cpp
+SOURCES = main.cpp PhoneBook.cpp
 		
 OBJECTS = $(SOURCES:.c=.o)
 

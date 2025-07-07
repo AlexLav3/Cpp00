@@ -1,9 +1,15 @@
 #pragma once
+#include <iostream>
 
-class Contact 
+//: first name, last name, nickname, phone number, and darkest secret.
+class Contact
 {
-    public: 
+public:
+    std::string getInfo();
 
-    private: 
-
+private:
+    std::string first_name;
+    std::string last_name;
+    std::string nickname;
+    std::string darkest_secret;
 };
