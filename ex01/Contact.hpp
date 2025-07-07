@@ -5,7 +5,9 @@
 class Contact
 {
 public:
-    std::string getInfo();
+    enum INFO {FIRST, LAST, NICK, SECRET};
+    std::string getInfo(int info) const;
+    void setContInfo(int info, std::string &str);
 
 private:
     std::string first_name;

@@ -2,9 +2,9 @@ NAME = LonerPhoneB
 CC = c++
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCES = main.cpp PhoneBook.cpp
+SOURCES = main.cpp PhoneBook.cpp Contact.cpp
 		
-OBJECTS = $(SOURCES:.c=.o)
+OBJECTS = $(SOURCES:.cpp=.o)
 
 all: $(NAME)
 
