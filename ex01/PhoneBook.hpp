@@ -14,4 +14,5 @@ private:
     Contact contacts[8];
     int index = 0;
     void displayAll();
+    int displayLenght(int column_len, int info_len);
 };

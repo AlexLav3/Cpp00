@@ -11,6 +11,8 @@ std::string Contact::getInfo(int info) const
         return nickname;
     else if (info == SECRET)
         return darkest_secret;
+    else if (info == NUM)
+        return phone_num;
     else
         return "";
 }
@@ -25,6 +27,8 @@ void Contact::setContInfo(int info, std::string &str)
         nickname = str;
     else if (info == SECRET)
         darkest_secret = str;
+    else if (info == NUM)
+        phone_num = str;
     else 
         return;
 }
@@ -43,5 +47,6 @@ int Contact::infoLenght(int info)
         return 0;
 }
 bool Contact::isEmpty() const {
-    return first_name.empty() && last_name.empty() && nickname.empty() && darkest_secret.empty();
+    return first_name.empty() && last_name.empty() && nickname.empty() && darkest_secret.empty() && phone_num.empty();
 }
+

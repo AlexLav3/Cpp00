@@ -5,16 +5,17 @@
 class Contact
 {
 public:
-    enum INFO {FIRST, LAST, NICK, SECRET};
+    enum INFO {FIRST, LAST, NICK, NUM, SECRET};
     std::string getInfo(int info) const;
     void setContInfo(int info, std::string &str);
     int infoLenght(int info);
     bool isEmpty() const;
 
-private:
 
+private:
     std::string first_name;
     std::string last_name;
     std::string nickname;
+    std::string phone_num;
     std::string darkest_secret;
 };
