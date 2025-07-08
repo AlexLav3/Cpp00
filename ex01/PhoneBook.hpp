@@ -2,6 +2,7 @@
 #include "Contact.hpp"
 #include <iostream>
 #include <string>
+#include <cstring>
 
 class PhoneBook
 {
@@ -11,5 +12,6 @@ public:
 
 private:
     Contact contacts[8];
-    int index;
+    int index = 0;
+    void displayAll();
 };

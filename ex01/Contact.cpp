@@ -8,7 +8,7 @@ std::string Contact::getInfo(int info) const
     else if (info == LAST)
         return last_name;
     else if (info == NICK)
-        return last_name;
+        return nickname;
     else if (info == SECRET)
         return darkest_secret;
     else
@@ -22,9 +22,26 @@ void Contact::setContInfo(int info, std::string &str)
     else if (info == LAST)
         last_name = str;
     else if (info == NICK)
-        last_name = str;
+        nickname = str;
     else if (info == SECRET)
         darkest_secret = str;
     else 
         return;
+}
+
+int Contact::infoLenght(int info)
+{
+    if (info == FIRST)
+        return first_name.size();
+    else if (info == LAST)
+        return last_name.size();
+    else if (info == NICK)
+        return nickname.size();
+    else if (info == SECRET)
+        return darkest_secret.size();
+    else
+        return 0;
+}
+bool Contact::isEmpty() const {
+    return first_name.empty() && last_name.empty() && nickname.empty() && darkest_secret.empty();
 }

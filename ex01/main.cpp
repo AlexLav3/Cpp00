@@ -6,6 +6,7 @@ int main()
     PhoneBook pb;
     std::string cmd;
     while (true) {
+        std::cout << "Insert command\n";
         std::cin >> cmd;
         if (cmd == "ADD")
             pb.addContact();
