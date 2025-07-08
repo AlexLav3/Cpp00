@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 
-//: first name, last name, nickname, phone number, and darkest secret.
 class Contact
 {
 public:

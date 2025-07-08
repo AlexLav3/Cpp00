@@ -52,7 +52,6 @@ bool Contact::isEmpty() const {
     return first_name.empty() && last_name.empty() && nickname.empty() && darkest_secret.empty() && phone_num.empty();
 }
 
-//substr(pos, len);
 std::string Contact::dispString(int info, int len)
 {
     std::string dis_info = getInfo(info);
