@@ -35,9 +35,14 @@ void PhoneBook::searchContact()
     displayAll();
     int search_ind;
     std::cout << "Insert contact index\n";
-    std::cin >> search_ind;
-
-    if(search_ind <= 8 && !contacts[search_ind].isEmpty())
+    if(!(std::cin >> search_ind) || search_ind < 0 || search_ind >= 8)
+    {
+        std::cin.clear();
+        std::cin.ignore(10000, '\n'); 
+        std::cout << "Wrong index! >:( .\n";
+        return;
+    }
+    else if(!contacts[search_ind].isEmpty())
     {
         std::cout << "First name: " << contacts[search_ind].getInfo(Contact::FIRST) << "\n";
         std::cout << "Last name: " << contacts[search_ind].getInfo(Contact::LAST) << "\n";
@@ -46,41 +51,44 @@ void PhoneBook::searchContact()
         std::cout << "Darkest secret: " << contacts[search_ind].getInfo(Contact::SECRET)<< "\n";
     }
     else 
-        std::cout << "wrong index\n";
+        std::cout << "Contact index is empty\n";
 }
 
-//to correct alignment (the .)
 void PhoneBook::displayAll()
 {
     int col_lenght = 10; 
 
-    index = 0;
-    for (int index = 0; index < 8; ++index)
+    for (int index = 0; index < 8; index++)
     {   
         if (!contacts[index].isEmpty())
         {
-            for(int i = 0; i < (col_lenght - index); i++)
+            for(int i = 0; i < (col_lenght - 1); i++)
                 std::cout << " ";
             std::cout << index << "|";
-            for(int i = 0; i < (displayLenght(col_lenght, contacts[index].infoLenght(Contact::FIRST))); i++)
+            for(int i = 0; i < (displayLenght(col_lenght, Contact::FIRST, index)); i++)
                 std::cout << " ";
-            std::cout << contacts[index].getInfo(Contact::FIRST) << "|";
+            std::cout << contacts[index].dispString(Contact::FIRST, col_lenght) << "|";
 
-            for(int i = 0; i < displayLenght(col_lenght,contacts[index].infoLenght(Contact::LAST)); i++)
+            for(int i = 0; i < (displayLenght(col_lenght, Contact::LAST, index)); i++)
                 std::cout << " ";
-            std::cout << contacts[index].getInfo(Contact::LAST) << "|";
+            std::cout << contacts[index].dispString(Contact::LAST, col_lenght ) << "|";
 
-            for(int i = 0; i <  displayLenght(col_lenght, contacts[index].infoLenght(Contact::NICK)); i++)
+            for(int i = 0; i < (displayLenght(col_lenght, Contact::NICK, index)); i++)
                 std::cout << " ";
-            std::cout << contacts[index].getInfo(Contact::NICK)<< "|";
+            std::cout << contacts[index].dispString(Contact::NICK, col_lenght ) << "|";
             std::cout << std::endl;
         }
     }
 
 }
 
-int PhoneBook::displayLenght(int column_len, int info_len)
+int PhoneBook::displayLenght(int column_len, int info, int ind)
 {
-    return column_len - info_len;
+    // printf("\ncol leng%d\n",column_len);
+    // printf("info passed %d\n", info);
+    // printf("info len%d\n",contacts[index].infoLenght(info));
+    int len = column_len - contacts[ind].infoLenght(info);
+    if (len < 0)
+        return 0;
+    return len;
 }
-

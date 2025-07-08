@@ -43,6 +43,8 @@ int Contact::infoLenght(int info)
         return nickname.size();
     else if (info == SECRET)
         return darkest_secret.size();
+    else if (info == NUM)
+        return phone_num.size();
     else
         return 0;
 }
@@ -50,3 +52,14 @@ bool Contact::isEmpty() const {
     return first_name.empty() && last_name.empty() && nickname.empty() && darkest_secret.empty() && phone_num.empty();
 }
 
+//substr(pos, len);
+std::string Contact::dispString(int info, int len)
+{
+    std::string dis_info = getInfo(info);
+    int infolen = infoLenght(info);
+
+    if (infolen > len)
+        return dis_info.substr(0, len - 1) + '.';
+    else
+        return dis_info;
+}

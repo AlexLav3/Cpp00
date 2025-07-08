@@ -10,7 +10,7 @@ public:
     void setContInfo(int info, std::string &str);
     int infoLenght(int info);
     bool isEmpty() const;
-
+    std::string dispString(int info, int len);
 
 private:
     std::string first_name;
