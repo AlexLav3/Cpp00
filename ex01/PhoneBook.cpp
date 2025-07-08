@@ -84,9 +84,6 @@ void PhoneBook::displayAll()
 
 int PhoneBook::displayLenght(int column_len, int info, int ind)
 {
-    // printf("\ncol leng%d\n",column_len);
-    // printf("info passed %d\n", info);
-    // printf("info len%d\n",contacts[index].infoLenght(info));
     int len = column_len - contacts[ind].infoLenght(info);
     if (len < 0)
         return 0;
